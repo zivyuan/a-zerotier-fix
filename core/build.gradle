@@ -42,9 +42,6 @@ android {
         main.java.srcDirs = ['../externals/core/java/src']
     }
 
-    buildFeatures {
-        viewBinding true
-    }
 }
 
 dependencies {

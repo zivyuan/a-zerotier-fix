@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://github.com/kaaass/ZerotierFix/blob/master/app/src/main/ic_launcher-playstore.png?raw=true" alt="Zerotier Fix" width="200">
+  <img src="app/src/main/ic_launcher-playstore.png" alt="Zerotier Fix" width="200">
   <br>Zerotier Fix<br>
 </h1>
 
@@ -12,8 +12,8 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/kaaass/ZerotierFix/actions/workflows/build-app.yml">
-        <img src="https://github.com/kaaass/ZerotierFix/actions/workflows/build-app.yml/badge.svg" alt="Build APP"/>
+    <a href="https://github.com/zivyuan/ZerotierFix/actions/workflows/build-app.yml">
+        <img src="https://github.com/zivyuan/ZerotierFix/actions/workflows/build-app.yml/badge.svg" alt="Build APP"/>
     </a>
 </p>
 
@@ -26,9 +26,9 @@
 
 ## Download
 
-Check [Releases page](https://github.com/kaaass/ZerotierFix/releases) for latest version.
+Check [Releases page](https://github.com/zivyuan/ZerotierFix/releases) for latest version.
 
-If you want to try the nightly build, you can download it from [GitHub Actions](https://github.com/kaaass/ZerotierFix/actions/workflows/build-app.yml?query=branch%3Amaster).
+If you want to try the nightly build, you can download it from [GitHub Actions](https://github.com/zivyuan/ZerotierFix/actions/workflows/build-app.yml?query=branch%3Amaster).
 But please note that the nightly build may be **BUGGY** and **UNSTABLE**.
 
 ## Copyright
