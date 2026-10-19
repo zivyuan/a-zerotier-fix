@@ -15,18 +15,24 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
-      - uses: sparkfabrik/android-build-action@v1.5.0
+      - uses: actions/setup-java@v4
         with:
-          project-path: .
-          output-path: app-debug.apk
-          fastlane-env: "debug"
-          ruby-version: "3.3.0"
-      - uses: actions/upload-artifact@v3
+          distribution: 'temurin'
+          # Gradle 7.5 不支持 JDK 18+，固定 11
+          java-version: '11'
+      - name: Install NDK and CMake
+        shell: bash
+        run: yes | sdkmanager "ndk;25.2.9519653" "cmake;3.22.1" > /dev/null
+      - name: Build APK
+        run: |
+          chmod +x gradlew
+          ./gradlew ${{ github.event_name == 'pull_request' && 'assembleDebug' || 'assembleRelease' }}
+      - uses: actions/upload-artifact@v4
         if: github.event_name == 'pull_request'
         name: Upload app APK
         with:
           name: App bundle
-          path: app-debug.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
       # https://github.com/r0adkll/sign-android-release/issues/84#issuecomment-1889636075
       - name: Setup build tool version variable
         shell: bash
@@ -39,7 +45,7 @@ jobs:
         name: Sign app APK
         id: sign_app
         with:
-          releaseDirectory: .
+          releaseDirectory: app/build/outputs/apk/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}

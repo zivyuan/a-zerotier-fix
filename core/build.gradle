@@ -5,6 +5,9 @@ plugins {
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
+    // NDK 26+ 不再支持 minSdk 19，固定使用 AGP 7.4 默认的 25.2
+    ndkVersion "25.2.9519653"
+
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -27,9 +30,16 @@ android {
 
     externalNativeBuild {
         cmake {
-            path file('../externals/core/java/CMakeLists.txt')
+            // 树外 CMake：不改动 externals/core 子模块（见该文件头注释）
+            path file('../externals/CMakeLists.txt')
             version '3.22.1'
         }
+    }
+
+    // Java SDK 源码位于子模块内（曾用软链接 core/src/main/java 指向，
+    // Windows 检出会失效，改为 srcDirs 重定向）
+    sourceSets {
+        main.java.srcDirs = ['../externals/core/java/src']
     }
 
     buildFeatures {

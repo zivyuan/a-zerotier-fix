@@ -1,18 +1,18 @@
 # 功能升级清单
 
 > 依据 docs/fork-survey.md 中各 fork 的独立修改整理，并对照本仓库（zivyuan/ZerotierFix，
-> 核心版本 1.12.2）现状标注状态。复杂度：★ 低 / ★★ 中 / ★★★ 高。
+> 核心版本 1.16.2）现状标注状态。复杂度：★ 低 / ★★ 中 / ★★★ 高。
 > 建议按优先级从上到下实施；核心升级是地基，其后的稳定性/性能移植应基于新核心进行，
 > 避免二次适配。
 
-## P0 核心与构建（地基，建议一批完成）
+## P0 核心与构建（地基，建议一批完成）✅ 已全部完成
 
 | # | 项目 | 来源 | 复杂度 | 说明 |
 |---|------|------|--------|------|
-| 1 | ZeroTier 核心升级 1.12.2 → 1.16.2 | gmij / hengliang8 / zwh8800 | ★★★ | 官方仓库无 kaaass 的 `java/` 绑定目录，需自建绑定层或借用已适配 fork。注意 1.14 起组播协议重写（本仓库 b481035 的组播修复需与新核心比对，可能已被上游覆盖或冲突）、`ZT_VirtualNetworkConfig` 结构新增字段 |
-| 2 | 配置项跟随升级 | 随 #1 | ★★ | 升级核心后核对：C API 新增字段（SSO 等）在 JNI 层的读取、CMake 构建参数、节点默认配置 |
-| 3 | libZeroTierOneJNI.so 16KB 页对齐 | stalxjason | ★ | 链接参数 `-Wl,-z,max-page-size=16384`，Android 15+ 硬性要求。与 #1 同批做 |
-| 4 | CI 构建改造 | zwh8800 | ★ | 替换已失效的 sparkfabrik/android-build-action 为直接 gradle 构建；可顺手加手动触发、无 secrets 跳过签名、tag 自动发 Release |
+| 1 | ZeroTier 核心升级 1.12.2 → 1.16.2 ✅ | gmij / hengliang8 / zwh8800 | ★★★ | 已完成：子模块切官方 1.16.2（fe29cd8），JNI 绑定层外置 core/jni/（官方 1.16.2 版 + kaaass 的 JNIEnvGuard 补丁），树外 CMake externals/CMakeLists.txt。实际改动远小于预估：C API 唯一破坏性变更是 ZT_Node_new 新增 config 参（官方 JNI 已适配），Java SDK 三方零差异，app 侧零改动 |
+| 2 | 配置项跟随升级 ✅ | 随 #1 | ★★ | 已核对：VirtualNetworkConfig 无字段变化（SSO 字段 1.12.2 已有）、多播 API 不变、enableEncryptedHello/lowBandwidthMode 按 JNI 默认传 0；UdpCom 9994 端口、自定义 planet 重定向、MTU/DNS 路径均不受影响。核对方法（2026-10-19）：官方 1.12.2 / kaaass@d028a24 / 官方 1.16.2 三方逐文件比对 include/ZeroTierOne.h 与 java/src、java/jni；jni 层实质差异仅 com_zerotierone_sdk_Node.cpp（ZT_Node_new 新参 + 帧回调线程 attach），Java SDK 零差异，C ABI 其余结构体/枚举/回调签名不变 |
+| 3 | libZeroTierOneJNI.so 16KB 页对齐 ✅ | stalxjason | ★ | 已完成：externals/CMakeLists.txt 中 `target_link_options(... -Wl,-z,max-page-size=16384)`；NDK 钉 25.2.9519653（NDK 26+ 不支持 minSdk 19） |
+| 4 | CI 构建改造 ✅ | zwh8800 | ★ | 已完成：sparkfabrik action 替换为 setup-java（JDK 11）+ gradlew 直接构建，签名步骤保留。手动触发、tag 自动发 Release 未做，后续可加 |
 
 ## P1 稳定性（核心升级后移植）
 

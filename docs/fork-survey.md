@@ -4,14 +4,14 @@
 > 筛选出有独立提交且具参考价值的 fork，按价值排序。
 >
 > 本仓库（zivyuan/ZerotierFix）fork 自 kaaass/ZerotierFix，自最后合并点（PR #55）后
-> 领先 23 个提交，主要工作为：ZeroTier 核心升级至 **1.12.2**（子模块指向
-> kaaass/ZeroTierOne @ d028a24，仅含 Android JNI 绑定层）、ICMPv6 NS 崩溃修复、
+> 领先 23 个提交，主要工作为：ZeroTier 核心升级至 **1.16.2**（2026-10 完成升级：
+> 子模块指向官方 zerotier/ZeroTierOne @ 1.16.2，JNI 绑定层外置本仓库 core/jni/ 自维护，
+> 树外 CMake externals/CMakeLists.txt，含 16KB 页对齐；kaaass 绑定层的 JNIEnvGuard
+> 补丁保留在 core/jni/ZT_jniutils.h）、ICMPv6 NS 崩溃修复、
 > 组播实现修复（b481035）、自定义 Planet 文件（支持非官方 Planet ID / 本地文件 / HTTP URL）、
 > 通知权限提醒、desugaring 旧设备适配、CI 构建签名改造（secrets 方式，无密钥入库）。
 >
-> 注意：官方最新 release 为 1.16.2（2026-05-28），本仓库核心落后 4 个次版本，
-> 升级路径为 1.12.2 → 1.16.2。基于本仓库现状整理的功能升级清单见
-> docs/upgrade-checklist.md 。
+> 基于本仓库现状整理的功能升级清单见 docs/upgrade-checklist.md 。
 
 ## 一、大量功能性开发
 
