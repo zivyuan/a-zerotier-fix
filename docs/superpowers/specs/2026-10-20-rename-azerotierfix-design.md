@@ -23,7 +23,7 @@
    - `gh repo rename a-zerotier-fix`（旧 URL 由 GitHub 自动重定向）
    - 本地 remote 更新为 `git@github.com:zivyuan/a-zerotier-fix.git`
 
-2. **包名迁移** `net.kaaass.zerotierfix` → `net.kaaass.azerotierfix`
+2. **包名迁移** `net.kaaass.azerotierfix` → `net.kaaass.azerotierfix`
    - `git mv` 迁移 `app/src/main/java/net/kaaass/zerotierfix/`、`app/src/test/...`、`app/src/androidTest/...` 三处目录（保留 git 历史）
    - 全局文本替换包名引用：import 语句、AndroidManifest（application/service 名）、app/build.gradle（applicationId、namespace、daoPackage）、intent action 等字符串字面量
    - 顺带替换 AndroidManifest 中 application 类名引用
@@ -31,12 +31,12 @@
 3. **名称更新**
    - `settings.gradle`：`rootProject.name = "aZerotierFix"`
    - `app/src/main/res/values/strings.xml`：`app_name` → `aZerotierFix`
-   - 主题样式 `Theme.ZerotierFix` → `Theme.aZerotierFix`（values/themes.xml、values-night/themes.xml、AndroidManifest、layout 引用）
+   - 主题样式 `Theme.aZerotierFix` → `Theme.aZerotierFix`（values/themes.xml、values-night/themes.xml、AndroidManifest、layout 引用）
    - 类重命名：`ZerotierFixApplication.java` → `AZerotierFixApplication.java`，类名与所有引用同步
 
 4. **README.md**
    - 所有 `zivyuan/ZerotierFix` 链接（badge、Releases、Actions）→ `zivyuan/a-zerotier-fix`
-   - 正文中 `net.kaaass.zerotierfix` 的说明同步更新
+   - 正文中 `net.kaaass.azerotierfix` 的说明同步更新
 
 ## 不改动
 
@@ -47,7 +47,7 @@
 ## 验证
 
 - `./gradlew assembleDebug` 构建通过
-- `grep -r 'net.kaaass.zerotierfix\|ZerotierFix' --exclude-dir=.git --exclude-dir=build` 无残留（历史文档除外，逐条人工确认）
+- `grep -r 'net.kaaass.azerotierfix\|ZerotierFix' --exclude-dir=.git --exclude-dir=build` 无残留（历史文档除外，逐条人工确认）
 
 ## 提交
 

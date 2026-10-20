@@ -3,7 +3,7 @@
 > 调研时间：2026-10-19。基于 GitHub compare API 遍历 fork 网络（共 267 个 fork），
 > 筛选出有独立提交且具参考价值的 fork，按价值排序。
 >
-> 本仓库（zivyuan/ZerotierFix）fork 自 kaaass/ZerotierFix，自最后合并点（PR #55）后
+> 本仓库（zivyuan/a-zerotier-fix）fork 自 kaaass/ZerotierFix，自最后合并点（PR #55）后
 > 领先 23 个提交，主要工作为：ZeroTier 核心升级至 **1.16.2**（2026-10 完成升级：
 > 子模块指向官方 zerotier/ZeroTierOne @ 1.16.2，JNI 绑定层外置本仓库 core/jni/ 自维护，
 > 树外 CMake externals/CMakeLists.txt，含 16KB 页对齐；kaaass 绑定层的 JNIEnvGuard

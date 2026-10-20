@@ -1,6 +1,6 @@
 # 功能升级清单
 
-> 依据 docs/fork-survey.md 中各 fork 的独立修改整理，并对照本仓库（zivyuan/ZerotierFix，
+> 依据 docs/fork-survey.md 中各 fork 的独立修改整理，并对照本仓库（zivyuan/a-zerotier-fix，
 > 核心版本 1.16.2）现状标注状态。复杂度：★ 低 / ★★ 中 / ★★★ 高。
 > 建议按优先级从上到下实施；核心升级是地基，其后的稳定性/性能移植应基于新核心进行，
 > 避免二次适配。

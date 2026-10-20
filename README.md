@@ -1,6 +1,6 @@
 <h1 align="center">
-  <img src="app/src/main/ic_launcher-playstore.png" alt="Zerotier Fix" width="200">
-  <br>Zerotier Fix<br>
+  <img src="app/src/main/ic_launcher-playstore.png" alt="aZerotierFix" width="200">
+  <br>aZerotierFix<br>
 </h1>
 
 <h4 align="center">An unofficial Zerotier Android client patched from official client.</h4>
@@ -12,8 +12,8 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/zivyuan/ZerotierFix/actions/workflows/build-app.yml">
-        <img src="https://github.com/zivyuan/ZerotierFix/actions/workflows/build-app.yml/badge.svg" alt="Build APP"/>
+    <a href="https://github.com/zivyuan/a-zerotier-fix/actions/workflows/build-app.yml">
+        <img src="https://github.com/zivyuan/a-zerotier-fix/actions/workflows/build-app.yml/badge.svg" alt="Build APP"/>
     </a>
 </p>
 
@@ -26,9 +26,9 @@
 
 ## Download
 
-Check [Releases page](https://github.com/zivyuan/ZerotierFix/releases) for latest version.
+Check [Releases page](https://github.com/zivyuan/a-zerotier-fix/releases) for latest version.
 
-If you want to try the nightly build, you can download it from [GitHub Actions](https://github.com/zivyuan/ZerotierFix/actions/workflows/build-app.yml?query=branch%3Amaster).
+If you want to try the nightly build, you can download it from [GitHub Actions](https://github.com/zivyuan/a-zerotier-fix/actions/workflows/build-app.yml?query=branch%3Amaster).
 But please note that the nightly build may be **BUGGY** and **UNSTABLE**.
 
 ## Copyright
@@ -37,7 +37,7 @@ The code for this repository is based on the reverse engineering of the official
 original author is Grant Limberg (glimberg@gmail.com). See [AUTHORS.md](https://github.com/zerotier/ZeroTierOne/blob/master/AUTHORS.md#primary-authors) for more details.
 
 - Zerotier JNI Sdk is located in git submodule `externals/core`
-- Original Android client code is located in `net.kaaass.zerotierfix` (renamed from `com.zerotier.one`)
+- Original Android client code is located in `net.kaaass.azerotierfix` (renamed from `com.zerotier.one`)
 - App logo is a trademark of `ZeroTier, Inc.` and made by myself. 
 
 

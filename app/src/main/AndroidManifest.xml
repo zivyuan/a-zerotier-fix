@@ -7,14 +7,14 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:name="net.kaaass.zerotierfix.ZerotierFixApplication"
+        android:name="net.kaaass.azerotierfix.AZerotierFixApplication"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ZerotierFix"
+        android:theme="@style/Theme.aZerotierFix"
         android:usesCleartextTraffic="true">
         <service
             android:name=".service.ZeroTierOneService"
