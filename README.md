@@ -12,8 +12,8 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/zivyuan/a-zerotier-fix/actions/workflows/build-app.yml">
-        <img src="https://github.com/zivyuan/a-zerotier-fix/actions/workflows/build-app.yml/badge.svg" alt="Build APP"/>
+    <a href="https://github.com/zivyuan/a-zerotier-fix/actions/workflows/build-app-v2.yml">
+        <img src="https://github.com/zivyuan/a-zerotier-fix/actions/workflows/build-app-v2.yml/badge.svg" alt="Build APP"/>
     </a>
 </p>
 
@@ -28,7 +28,7 @@
 
 Check [Releases page](https://github.com/zivyuan/a-zerotier-fix/releases) for latest version.
 
-If you want to try the nightly build, you can download it from [GitHub Actions](https://github.com/zivyuan/a-zerotier-fix/actions/workflows/build-app.yml?query=branch%3Amaster).
+If you want to try the nightly build, you can download it from [GitHub Actions](https://github.com/zivyuan/a-zerotier-fix/actions/workflows/build-app-v2.yml?query=branch%3Amaster).
 But please note that the nightly build may be **BUGGY** and **UNSTABLE**.
 
 ## Copyright

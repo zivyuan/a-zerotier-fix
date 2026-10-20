@@ -5,6 +5,7 @@ on:
     branches: [ "master", "old-android" ]
   pull_request:
     branches: [ "master" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -15,14 +16,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
+      # sdkmanager 需要 Java 17+，须在 setup-java 固定 JDK 11 之前执行
+      - name: Install NDK and CMake
+        shell: bash
+        run: $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "ndk;25.2.9519653" "cmake;3.22.1"
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           # Gradle 7.5 不支持 JDK 18+，固定 11
           java-version: '11'
-      - name: Install NDK and CMake
-        shell: bash
-        run: yes | sdkmanager "ndk;25.2.9519653" "cmake;3.22.1" > /dev/null
       - name: Build APK
         run: |
           chmod +x gradlew
